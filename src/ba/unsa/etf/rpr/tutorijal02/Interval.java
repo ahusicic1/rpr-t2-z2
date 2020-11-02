@@ -14,6 +14,19 @@ public class Interval {
         t1 = 0; t2 = 0; pripada1 = false; pripada2 = false;
     }
 
+    public double getPrva() {
+        return t1;
+    }
+    public double getDruga() {
+        return t2;
+    }
+    public boolean isIn1(){
+        return pripada1;
+    }
+    public boolean isIn2(){
+        return pripada2;
+    }
+
     public boolean isNull(){
         if(t1 == 0 && t2 == 0) return true;
         return false;
@@ -25,16 +38,19 @@ public class Interval {
         return  true;
     }
 
-    public Interval intersect(Interval i1, Interval i2){
+    public static Interval intersect(Interval i1, Interval i2){
         double veci1, manji2;
         boolean pripada1, pripada2;
-        if(i1.t1 >= i2.t1){ veci1 = i1.t1; pripada1 = i1.pripada1; }
-        else{ veci1 = i2.t1; pripada1 = i2.pripada1; }
+        if(i1.getPrva() >= i2.getPrva()){ veci1 = i1.getPrva(); pripada1 = i1.isIn1(); }
+        else{ veci1 = i2.getPrva(); pripada1 = i2.isIn1(); }
 
-        if(i1.t2 <= i2.t2){ manji2 = i1.t2; pripada2 = i1.pripada2; }
-        else{ manji2 = i2.t2; pripada2 = i2.pripada2; }
+        if(i1.getDruga() <= i2.getDruga()){ manji2 = i1.getDruga(); pripada2 = i1.isIn2(); }
+        else{ manji2 = i2.getDruga(); pripada2 = i2.isIn2(); }
 
+        Interval i = new Interval(veci1, manji2, pripada1, pripada2);
+        return i;
     }
+
 
 
 
