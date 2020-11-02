@@ -31,7 +31,8 @@ public class Interval {
         if(i1.t1 >= i2.t1){ veci1 = i1.t1; pripada1 = i1.pripada1; }
         else{ veci1 = i2.t1; pripada1 = i2.pripada1; }
 
-
+        if(i1.t2 <= i2.t2){ manji2 = i1.t2; pripada2 = i1.pripada2; }
+        else{ manji2 = i2.t2; pripada2 = i2.pripada2; }
 
     }
 
