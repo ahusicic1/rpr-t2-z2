@@ -51,9 +51,24 @@ public class Interval {
         return i;
     }
 
+    public Interval intersect(Interval i1){
+        double veci1, manji2;
+        boolean pripada1, pripada2;
+        if(i1.getPrva() >= this.getPrva()){ veci1 = i1.getPrva(); pripada1 = i1.isIn1(); }
+        else{ veci1 = this.getPrva(); pripada1 = this.isIn1(); }
 
+        if(i1.getDruga() <= this.getDruga()){ manji2 = i1.getDruga(); pripada2 = i1.isIn2(); }
+        else{ manji2 = this.getDruga(); pripada2 = this.isIn2(); }
 
+        Interval i = new Interval(veci1, manji2, pripada1, pripada2);
+        return i;
+    }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        Interval i = (Interval) obj;
+        return ( i.getPrva() == this.getPrva() && i.getDruga() == this.getDruga()
+         && i.isIn1() == this.isIn1()  &&  i.isIn2() == this.isIn2());
+    }
 
 }
