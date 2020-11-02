@@ -71,4 +71,16 @@ public class Interval {
          && i.isIn1() == this.isIn1()  &&  i.isIn2() == this.isIn2());
     }
 
+    @Override
+    public String toString() {
+       String s = "";
+       if(isIn1()) s= s + "[";
+       else s = s + "(";
+
+       s = s + Double.toString(getPrva()) + "," + Double.toString(getDruga());
+
+        if(isIn2()) s= s + "]";
+        else s = s + ")";
+        return s;
+    }
 }
