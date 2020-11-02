@@ -77,6 +77,7 @@ public class Interval {
        if(isIn1()) s= s + "[";
        else s = s + "(";
 
+       if(!isNull())
        s = s + Double.toString(getPrva()) + "," + Double.toString(getDruga());
 
         if(isIn2()) s= s + "]";
